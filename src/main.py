@@ -19,9 +19,11 @@ def center_reduction(X):
     Méthode permettant de centrer-réduire la matrice X, donnée en paramètre
     """
 
-    # Initialisation d'une matrice vide, de taille X
-    X_star = np.empty(X.shape)
+    # Obtention de la taille de la matrice
     (n, p) = X.shape
+
+    # Initialisation d'une matrice vide, de taille X
+    X_star = np.empty((n, p))
 
     # Pour chaque donnée...
     for j in range(p):

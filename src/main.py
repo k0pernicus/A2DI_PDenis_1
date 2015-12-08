@@ -1,4 +1,6 @@
 #-*- coding: utf-8 -*-
+
+import numpy as np
 from sklearn import datasets
 
 def load_iris_data():

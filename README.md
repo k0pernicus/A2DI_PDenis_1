@@ -6,7 +6,7 @@ Analyse en Composantes Principales
 
 ## Procédure
 
-1.  Télécharger les données IRIS : https://archive.ics.uci.edu/ml/dataset/Iris
+1.  Télécharger les données IRIS : https://archive.ics.uci.edu/ml/datasets/Iris
 2.  Projeter les données en 1, 2 et 3 dimensions.  
     Dans chaque cas, visualiser les "nouvelles" données en *scatterplots*.  
     Utiliser des couleurs différentes pour chaque classe.

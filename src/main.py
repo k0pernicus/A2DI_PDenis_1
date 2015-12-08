@@ -41,6 +41,17 @@ def center_reduction(X):
 
     return X_star
 
+def compute_singular_value_decomposition(X_star):
+    """
+    Méthode permettant de calculer la SVD (ou décomposition spectrale) de la matrice X*, donnée en paramètre
+    On retournera ainsi un tuple : (U, s, V)
+    U: Les vecteurs propres de X* * X*.T
+    s: La diagonale de la matrice contenant les racines des vecteurs propres
+    V: Les vecteurs propres de X*.T * X*
+    """
+
+    return np.linalg.svd(X_star)
+
 def main():
     """
     Main

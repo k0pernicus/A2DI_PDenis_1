@@ -57,7 +57,9 @@ def compute_singular_value_decomposition(X_star):
     V: Les vecteurs propres de X*.T * X*
     """
 
-    return np.linalg.svd(X_star)
+    U,s,V = np.linalg.svd(X_star, full_matrices=True)
+
+    return U,np.diag(s),V.T
 
 def main():
     """

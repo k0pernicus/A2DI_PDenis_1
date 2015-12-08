@@ -41,6 +41,13 @@ def center_reduction(X):
 
     return X_star
 
+def compute_covariance_matrix(X_star):
+    """
+    Méthode permettant de calculer la matrice de covariance à partir de la matrice X*, donnée en paramètre
+    """
+
+    return np.cov(X_star)
+
 def compute_singular_value_decomposition(X_star):
     """
     Méthode permettant de calculer la SVD (ou décomposition spectrale) de la matrice X*, donnée en paramètre

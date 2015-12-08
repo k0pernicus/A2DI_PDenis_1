@@ -69,12 +69,12 @@ def main():
     (X, _) = load_iris_data()
     X_star = center_reduction(X)
     U,s,V = compute_singular_value_decomposition(X_star)
+    #U,s = sort_proper_vectors(U, s)
 
-    # print("U : {0}".format(U))
-    #
-    # print("s : {0}".format(s))
-    #
-    # print("V : {0}".format(V))
+    print("U : {0}".format(U))
+    print("s : {0}".format(s))
+    print("diag s : {0}".format(np.diag(s)))
+    print("V : {0}".format(V))
 
 if __name__ == '__main__':
     main()

@@ -8,17 +8,34 @@ def load_iris_data():
     Méthode permettant de charger en mémoire les données IRIS, contenues dans scikit learn
     """
     iris = datasets.load_iris()
-    X = iris.data[:, :2]  # we only take the first two features.
+    X = iris.data[:, :4]  # we only take the first two features.
     Y = iris.target
 
-    print("X: {}".format(X))
-    print("Y: {}".format(Y))
+    return (X, Y)
+
+def center_reduction(X):
+    X_star = np.empty(X.shape)
+    (n, p) = X.shape
+
+    for j in range(p):
+        col = X[:, j]
+        mean = np.mean(col)
+        scol = np.std(col)
+
+        for i in range(n):
+            X_star[i][j] = (X[i][j] - mean) / scol
+
+    return X_star
+
 
 def main():
     """
     Main
     """
-    pass
+    (X, _) = load_iris_data()
+    X_star = center_reduction(X)
+
+    print(X_star)
 
 if __name__ == '__main__':
     main()

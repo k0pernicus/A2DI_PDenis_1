@@ -95,8 +95,7 @@ def main():
     print("R.shape : {0}".format(R.shape))
     print("U : {0}".format(U))
     print("s : {0}".format(s))
-    print("diag s : {0}".format(np.diag(s)))
-    print("V : {0}".format(V))
+    print("Y.shape : {0}".format(Y.shape))
 
 if __name__ == '__main__':
     main()

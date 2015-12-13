@@ -84,16 +84,22 @@ def plot_data(Y, k):
         plt.plot(Y[0:50, 0], np.zeros_like(Y[0:50, 0]) + 0., 'x', c='g')
         plt.plot(Y[50:100, 0], np.zeros_like(Y[50:100, 0]) + 0., 'x', c='r')
         plt.plot(Y[100:150, 0], np.zeros_like(Y[100:150, 0]) + 0., 'x', c='y')
+        plt.xlabel("Variable 1")
     elif k == 2:
         plt.scatter(Y[0:50, 0], Y[0:50, 1], c='g')
         plt.scatter(Y[50:100, 0], Y[50:100, 1], c='r')
         plt.scatter(Y[100:150, 0], Y[100:150, 1], c='y')
+        plt.xlabel("Variable 1")
+        plt.ylabel("Variable 2")
     else:
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
         ax.scatter(Y[0:50, 0], Y[0:50, 1], Y[0:50, 2], c='g')
         ax.scatter(Y[50:100, 0], Y[50:100, 1], Y[50:100, 2], c='r')
         ax.scatter(Y[100:150, 0], Y[100:150, 1], Y[100:150, 2], c='y')
+        ax.set_xlabel("Variable 1")
+        ax.set_ylabel("Variable 2")
+        ax.set_zlabel("Variable 3")
 
     plt.show()
 

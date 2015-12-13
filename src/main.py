@@ -52,14 +52,14 @@ def compute_covariance_matrix(X_star):
 
 def compute_singular_value_decomposition(R):
     """
-    Méthode permettant de calculer la SVD (ou décomposition spectrale) de la matrice X*, donnée en paramètre
+    Méthode permettant de calculer la SVD (ou décomposition spectrale) de la matrice R, donnée en paramètre
     On retournera ainsi un tuple : (U, s, V)
     U: Les vecteurs propres de X* * X*.T
     s: La diagonale de la matrice contenant les racines des vecteurs propres
     V: Les vecteurs propres de X*.T * X*
     """
 
-    U,s,V = np.linalg.svd(X_star, full_matrices=True)
+    U,s,V = np.linalg.svd(R, full_matrices=True)
 
     return U,np.diag(s),V.T
 

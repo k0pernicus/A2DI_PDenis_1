@@ -70,9 +70,14 @@ def main():
 
     (X, _) = load_iris_data()
     X_star = center_reduction(X)
-    U,s,V = compute_singular_value_decomposition(X_star)
+    (n, p) = X.shape
+    R = compute_covariance_matrix(X_star)
+    U,s,V = compute_singular_value_decomposition(R)
     #U,s = sort_proper_vectors(U, s)
 
+    print("R : {0}".format(R))
+    print("X.shape : {0}".format(X_star.shape))
+    print("R.shape : {0}".format(R.shape))
     print("U : {0}".format(U))
     print("s : {0}".format(s))
     print("diag s : {0}".format(np.diag(s)))

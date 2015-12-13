@@ -70,6 +70,13 @@ def sort_proper_vectors(U, s):
 
     return np.asarray(zip(*sortedSAndU)[0])
 
+def compute_pca(X_star, U, k):
+    """
+    Réduit matrice X_star de dimension (n, p) en une matrice de dimension (n, k) avec k << p.
+    """
+
+    return np.dot(X_star, U[:k].T)
+
 def main():
     """
     Main
@@ -81,6 +88,7 @@ def main():
     R = compute_covariance_matrix(X_star)
     U,s = compute_singular_value_decomposition(R)
     U = sort_proper_vectors(U, s)
+    Y = compute_pca(X_star, U, 3)
 
     print("R : {0}".format(R))
     print("X.shape : {0}".format(X_star.shape))

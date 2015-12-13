@@ -60,6 +60,16 @@ def compute_singular_value_decomposition(R):
 
     return U,s
 
+def sort_proper_vectors(U, s):
+    """
+    Trie les vecteur propres dans l'ordre décroissant de leurs valeurs propres.
+    """
+
+    sAndU = zip(U, s)
+    sortedSAndU = sorted(sAndU, key=lambda (_, s_i): s_i, reverse=True)
+
+    return np.asarray(zip(*sortedSAndU)[0])
+
 def main():
     """
     Main
@@ -70,6 +80,7 @@ def main():
     (n, p) = X.shape
     R = compute_covariance_matrix(X_star)
     U,s = compute_singular_value_decomposition(R)
+    U = sort_proper_vectors(U, s)
 
     print("R : {0}".format(R))
     print("X.shape : {0}".format(X_star.shape))

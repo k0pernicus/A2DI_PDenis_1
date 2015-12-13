@@ -3,6 +3,7 @@
 import numpy as np
 from sklearn import datasets
 from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 def load_iris_data():
     """
@@ -78,6 +79,26 @@ def compute_pca(X_star, U, k):
 
     return np.dot(X_star, U[:k].T)
 
+def plot_data(Y, k):
+    if k == 1:
+        val = 0.
+        plt.plot(Y[0:50, 0], np.zeros_like(Y[0:50, 0]) + val, 'x', c='g')
+        plt.plot(Y[50:100, 0], np.zeros_like(Y[50:100, 0]) + val, 'x', c='r')
+        plt.plot(Y[100:150, 0], np.zeros_like(Y[100:150, 0]) + val, 'x', c='y')
+        pass
+    elif k == 2:
+        plt.scatter(Y[0:50, 0], Y[0:50, 1], c='g')
+        plt.scatter(Y[50:100, 0], Y[50:100, 1], c='r')
+        plt.scatter(Y[100:150, 0], Y[100:150, 1], c='y')
+    else:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        ax.scatter(Y[0:50, 0], Y[0:50, 1], Y[0:50, 2], c='g')
+        ax.scatter(Y[50:100, 0], Y[50:100, 1], Y[50:100, 2], c='r')
+        ax.scatter(Y[100:150, 0], Y[100:150, 1], Y[100:150, 2], c='y')
+
+    plt.show()
+
 def main():
     """
     Main
@@ -89,14 +110,17 @@ def main():
     R = compute_covariance_matrix(X_star)
     U,s = compute_singular_value_decomposition(R)
     U = sort_proper_vectors(U, s)
-    Y = compute_pca(X_star, U, 3)
+    k = 1
+    Y = compute_pca(X_star, U, k)
+
 
     print("R : {0}".format(R))
     print("X.shape : {0}".format(X_star.shape))
     print("R.shape : {0}".format(R.shape))
     print("U : {0}".format(U))
     print("s : {0}".format(s))
-    print("Y.shape : {0}".format(Y.shape))
+
+    plot_data(Y, k)
 
 if __name__ == '__main__':
     main()

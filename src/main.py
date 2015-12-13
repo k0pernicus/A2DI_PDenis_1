@@ -81,11 +81,9 @@ def compute_pca(X_star, U, k):
 
 def plot_data(Y, k):
     if k == 1:
-        val = 0.
-        plt.plot(Y[0:50, 0], np.zeros_like(Y[0:50, 0]) + val, 'x', c='g')
-        plt.plot(Y[50:100, 0], np.zeros_like(Y[50:100, 0]) + val, 'x', c='r')
-        plt.plot(Y[100:150, 0], np.zeros_like(Y[100:150, 0]) + val, 'x', c='y')
-        pass
+        plt.plot(Y[0:50, 0], np.zeros_like(Y[0:50, 0]) + 0., 'x', c='g')
+        plt.plot(Y[50:100, 0], np.zeros_like(Y[50:100, 0]) + 0., 'x', c='r')
+        plt.plot(Y[100:150, 0], np.zeros_like(Y[100:150, 0]) + 0., 'x', c='y')
     elif k == 2:
         plt.scatter(Y[0:50, 0], Y[0:50, 1], c='g')
         plt.scatter(Y[50:100, 0], Y[50:100, 1], c='r')

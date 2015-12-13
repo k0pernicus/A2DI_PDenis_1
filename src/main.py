@@ -56,9 +56,9 @@ def compute_singular_value_decomposition(R):
     On retournera ainsi un tuple : (U, s, V) où V = U.T et s contient les valeurs propres associés au vecteurs propres u_i
     """
 
-    U,s,V = np.linalg.svd(R, full_matrices=True)
+    U,s,_ = np.linalg.svd(R, full_matrices=True)
 
-    return U,np.diag(s),V.T
+    return U,s
 
 def main():
     """
@@ -69,8 +69,7 @@ def main():
     X_star = center_reduction(X)
     (n, p) = X.shape
     R = compute_covariance_matrix(X_star)
-    U,s,V = compute_singular_value_decomposition(R)
-    #U,s = sort_proper_vectors(U, s)
+    U,s = compute_singular_value_decomposition(R)
 
     print("R : {0}".format(R))
     print("X.shape : {0}".format(X_star.shape))

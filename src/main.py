@@ -46,9 +46,11 @@ def compute_covariance_matrix(X_star):
     Méthode permettant de calculer la matrice de covariance à partir de la matrice X*, donnée en paramètre
     """
 
-    return np.cov(X_star)
+    (n, p) = X_star.shape
 
-def compute_singular_value_decomposition(X_star):
+    return np.dot(X_star.T, X_star) / n
+
+def compute_singular_value_decomposition(R):
     """
     Méthode permettant de calculer la SVD (ou décomposition spectrale) de la matrice X*, donnée en paramètre
     On retournera ainsi un tuple : (U, s, V)
